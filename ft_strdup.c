@@ -6,7 +6,7 @@
 /*   By: cben-bar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 03:22:51 by cben-bar          #+#    #+#             */
-/*   Updated: 2021/11/11 16:51:15 by cben-bar         ###   ########lyon.fr   */
+/*   Updated: 2021/11/15 01:16:55 by cben-bar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strdup(const char *s1)
 
 	i = 0;
 	dest = malloc(sizeof(char) * ft_strlen(s1) + 1);
-	if (! dest)
+	if (!dest)
 		return (NULL);
 	while (s1[i] != '\0')
 	{

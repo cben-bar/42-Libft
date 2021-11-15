@@ -6,7 +6,7 @@
 /*   By: cben-bar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 17:46:07 by cben-bar          #+#    #+#             */
-/*   Updated: 2021/11/11 22:43:36 by cben-bar         ###   ########lyon.fr   */
+/*   Updated: 2021/11/15 01:13:07 by cben-bar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	}
 	sub_str = (char *)malloc(sizeof(char) * len + 1);
 	if (!sub_str)
-		return (0);
+		return (NULL);
 	while (i < len)
 	{
 		sub_str[i] = s[start];
