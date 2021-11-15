@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cben-bar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/12 11:06:24 by cben-bar          #+#    #+#             */
-/*   Updated: 2021/11/12 14:26:32 by cben-bar         ###   ########.fr       */
+/*   Created: 2021/11/15 21:38:52 by cben-bar          #+#    #+#             */
+/*   Updated: 2021/11/15 22:31:50 by cben-bar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_size_malloc(long nb)
 		count++;
 		nb *= -1;
 	}
-	while (nb >= 10)
+	while (nb > 0 || count == 0)
 	{
 		count++;
 		nb /= 10;
@@ -40,13 +40,13 @@ void	ft_add_str(char *str, int index, long nb)
 	str[index] = base[nb % 10];
 }
 
-char	*ft_itoa(int nbr)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	long	nb;
 	int		size;
 
-	nb = (long)nbr;
+	nb = (long)n;
 	size = ft_size_malloc(nb);
 	str = malloc(sizeof(char) * (size + 1));
 	if (!str)
@@ -56,25 +56,7 @@ char	*ft_itoa(int nbr)
 		nb *= -1;
 		str[0] = '-';
 	}
-	ft_add_str(str, size, nb);
-	str[size + 1] = '\0';
+	ft_add_str(str, size - 1, nb);
+	str[size] = '\0';
 	return (str);
 }
-
-/*
-** #include <stdio.h>
-** #include <string.h>
-** int	main(void)
-** {
-** 	char	*nb;
-** 	nb = ft_itoa(-2147483648);
-** 	printf("%s\n", nb);
-** 	free(nb);
-** 	nb = ft_itoa(2147483647);
-** 	printf("%s\n", nb);
-** 	free(nb);
-** 	nb = ft_itoa(0);
-** 	printf("%s\n", nb);
-** 	free(nb);
-** }
-*/

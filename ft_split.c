@@ -5,99 +5,80 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cben-bar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 10:00:44 by cben-bar          #+#    #+#             */
-/*   Updated: 2021/11/12 15:55:45 by cben-bar         ###   ########.fr       */
+/*   Created: 2021/11/15 17:10:10 by cben-bar          #+#    #+#             */
+/*   Updated: 2021/11/15 22:49:26 by cben-bar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-short	ft_is_charset(char c)
+static char	*ft_strndup(char const *src, size_t n)
 {
-	if (c == '\0' || c == ' ' || c == '\n' || c == '\t')
-		return (1);
-	return (0);
-}
+	char	*dest;
+	size_t	i;
 
-int	ft_count_word(char *str)
-{
-	int	i;
-	int	count;
-
+	dest = malloc(n + 1);
+	if (!dest)
+		return (NULL);
 	i = 0;
-	count = 0;
-	while (str[i])
+	while (src[i] && i < n)
 	{
-		if (!ft_is_charset(str[i]) && ft_is_charset(str[i + 1]))
-			count++;
+		dest[i] = src[i];
 		i++;
 	}
-	return (count);
+	dest[i] = 0;
+	return (dest);
 }
 
-void	ft_strcpy(char *tab, char *str)
+static size_t	ft_nbr_sep(char const *s, char c)
 {
-	int	i;
+	size_t	i;
+	size_t	i_beg;
+	size_t	i_end;
 
+	i_beg = 0;
+	i_end = 0;
 	i = 0;
-	while (!ft_is_charset(str[i]))
+	while (s[i_end])
 	{
-		tab[i] = str[i];
-		i++;
-	}
-	tab[i] = '\0';
-}
-
-void	ft_write(char **tab, char *str)
-{
-	int	i;
-	int	j;
-	int	index;
-
-	i = 0;
-	index = 0;
-	while (str[i])
-	{
-		if (!ft_is_charset(str[i]))
+		if (s[i_end] == c)
 		{
-			j = 0;
-			while (!ft_is_charset(str[i + j]))
-				j++;
-			tab[index] = malloc(sizeof(char) * j + 1);
-			ft_strcpy(tab[index], (str + i));
-			index++;
-			i += j;
+			if (i_end > i_beg)
+				i++;
+			i_beg = i_end + 1;
 		}
-		else
-			i++;
+		i_end++;
 	}
-	tab[index] = 0;
+	if (i_end > i_beg)
+		i++;
+	return (i);
 }
 
-char	**ft_split(char *str)
+char	**ft_split(char const *s, char c)
 {
-	int		count;
-	char	**tab;
+	char		**string;
+	size_t		i_beg;
+	size_t		i_end;
+	size_t		i;
 
-	count = ft_count_word(str);
-	tab = malloc(sizeof(char *) * count + 1);
-	ft_write(tab, str);
-	return (tab);
-}
-
-
-#include <stdio.h>
-
-int	main(void)
-{
-	char **tab;
-
-	printf("%d\n", ft_count_word("   /   \n   \t    ;   ceci \n  est umt test   ; \n"));
-	tab = ft_split("   /   \n   \t    ;   ceci \n  est umt test   ; \n");
-	for (int i = 0; tab[i]; i++)
+	string = malloc(sizeof(char *) * (ft_nbr_sep(s, c) + 1));
+	if (!string)
+		return (NULL);
+	i_beg = 0;
+	i_end = 0;
+	i = 0;
+	while (s[i_end])
 	{
-		printf("%s\n", tab[i]);
-		free(tab[i]);
+		if (s[i_end] == c)
+		{
+			if (i_end > i_beg)
+				string[i++] = ft_strndup (s + i_beg, i_end - i_beg);
+			i_beg = i_end + 1;
+		}
+		i_end++;
 	}
-	free(tab);
+	if (i_end > i_beg)
+		string[i++] = ft_strndup (s + i_beg, i_end - i_beg);
+	string[i] = NULL;
+	return (string);
 }
