@@ -5,20 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cben-bar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/11 18:47:52 by cben-bar          #+#    #+#             */
-/*   Updated: 2021/11/11 19:54:24 by cben-bar         ###   ########.fr       */
+/*   Created: 2021/11/15 01:12:12 by cben-bar          #+#    #+#             */
+/*   Updated: 2021/11/15 01:37:57 by cben-bar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
-	if (!s || !f)
-		return ;
 	while (s[i] != '\0')
 	{
 		f(i, &s[i]);
