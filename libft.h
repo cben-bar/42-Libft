@@ -6,7 +6,7 @@
 /*   By: cben-bar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 03:49:31 by cben-bar          #+#    #+#             */
-/*   Updated: 2021/11/15 17:37:30 by cben-bar         ###   ########lyon.fr   */
+/*   Updated: 2021/11/16 22:55:40 by cben-bar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **alst, t_list *new);
+//int		ft_lstsize(t_list *lst);
 
 #endif
