@@ -6,7 +6,7 @@
 /*   By: cben-bar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 17:10:10 by cben-bar          #+#    #+#             */
-/*   Updated: 2021/11/15 22:49:26 by cben-bar         ###   ########lyon.fr   */
+/*   Updated: 2021/11/16 22:54:09 by cben-bar         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static char	*ft_strndup(char const *src, size_t n)
 	return (dest);
 }
 
-static size_t	ft_nbr_sep(char const *s, char c)
+static size_t	ft_count_words(char const *s, char c)
 {
 	size_t	i;
 	size_t	i_beg;
@@ -61,7 +61,7 @@ char	**ft_split(char const *s, char c)
 	size_t		i_end;
 	size_t		i;
 
-	string = malloc(sizeof(char *) * (ft_nbr_sep(s, c) + 1));
+	string = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (!string)
 		return (NULL);
 	i_beg = 0;
