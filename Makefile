@@ -6,7 +6,7 @@
 #    By: cben-bar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 17:54:31 by cben-bar          #+#    #+#              #
-#    Updated: 2021/11/17 06:43:00 by cben-bar         ###   ########lyon.fr    #
+#    Updated: 2021/11/17 07:12:51 by cben-bar         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ BON			=	ft_lstadd_front.c	\
 				ft_lstadd_back.c	\
 				ft_lstdelone.c		\
 				ft_lstclear.c		\
+				ft_lstiter.c
 
 OBJS		= 	$(SRCS:.c=.o)
 
