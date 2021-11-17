@@ -6,7 +6,7 @@
 #    By: cben-bar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 17:54:31 by cben-bar          #+#    #+#              #
-#    Updated: 2021/11/17 04:53:46 by cben-bar         ###   ########lyon.fr    #
+#    Updated: 2021/11/17 05:20:11 by cben-bar         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,8 @@ SRCS		=	ft_atoi.c			\
 BON			=	ft_lstadd_front.c	\
 				ft_lstnew.c			\
 				ft_lstsize.c		\
-				ft_lstlast.c
+				ft_lstlast.c		\
+				ft_lstadd_back.c
 
 OBJS		= 	$(SRCS:.c=.o)
 
