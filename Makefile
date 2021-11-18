@@ -6,7 +6,7 @@
 #    By: cben-bar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 17:54:31 by cben-bar          #+#    #+#              #
-#    Updated: 2021/11/17 07:12:51 by cben-bar         ###   ########lyon.fr    #
+#    Updated: 2021/11/18 02:26:33 by cben-bar         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,8 @@ BON			=	ft_lstadd_front.c	\
 				ft_lstadd_back.c	\
 				ft_lstdelone.c		\
 				ft_lstclear.c		\
-				ft_lstiter.c
+				ft_lstiter.c		\
+				ft_lstmap.c
 
 OBJS		= 	$(SRCS:.c=.o)
 
@@ -66,10 +67,10 @@ BON_OBJS	= 	$(BON:.c=.o)
 
 all :			$(NAME)
 
-$(NAME)	:		$(OBJS)
+$(NAME)	:		$(OBJS) 
 				ar rcs $(NAME) ${OBJS}
 
-.c.o :			$(SRCS)
+%.o:			%.c libft.h
 				$(CC) $(FLAGS) -c $< -o ${<:.c=.o}
 
 clean :
